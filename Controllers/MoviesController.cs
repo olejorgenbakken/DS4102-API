@@ -33,7 +33,7 @@ namespace moviesAPI.Controllers
             return chosenMovie;
         }
 
-        [HttpGet("{firstname}")]
+        [HttpGet("{title}")]
         public async Task<IEnumerable<Movies>> Get(string title)
         {
             List<Movies> movieList = await _context.Movies
@@ -43,7 +43,13 @@ namespace moviesAPI.Controllers
             return movieList;
         }
 
-
+        [HttpPost]
+        public async Task<Movies> Post(Movies movie)
+        {
+            _context.Movies.Add(movie);
+            await _context.SaveChangesAsync();
+            return movie;
+        }
 
     }
 
