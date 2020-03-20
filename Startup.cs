@@ -21,7 +21,7 @@ namespace moviesAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<MoviesContext>(
-                options => options.UseSqlite("Data Source=MyMovies.db")
+                options => options.UseSqlite("Data Source=Movies.db")
             );
             services.AddControllers();
             services.AddCors(
